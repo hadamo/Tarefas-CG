@@ -1,9 +1,11 @@
-int wing=0;
+import shiffman.box2d.*;
+
+  int wing=0;
 float angle = radians(0);
 PImage flappy,bg;
 void setup()
 {
-  size(1000,1000,OPENGL);
+  size(600,800,OPENGL);
   flappy = loadImage("flappy.png");
   bg = loadImage("bg1.png");
   flappy.resize(100,100);
@@ -30,74 +32,11 @@ void draw()
     // rotateX(75);
      drawCylinder(300,60,300);
    popMatrix();
-   //corpo do bixo
    pushMatrix();
-   noStroke();
-   fill(#FFEA00);
-   sphere(50);
-   popMatrix();
-   
-   //olho direito
-   pushMatrix();
-     translate(-20,-10,25);
-     fill(255);
-     sphere(30);
-   popMatrix();
-   //pupila direita
-   pushMatrix();
-     translate(-35,-10,32);
-     fill(0);
-     sphere(18);
-   popMatrix();
-   //olho esquerdo
-   pushMatrix();
-     translate(-20,-10,-25);
-     fill(255);
-     sphere(30);
-   popMatrix();
-   //pupila esquerda
-     pushMatrix();
-     translate(-35,-10,-32);
-     fill(0);
-     sphere(18);
-   popMatrix();
-   //bico sup
-   pushMatrix();
-     translate(-40,20,0);
-     fill(#FF4800);
-     box(40,15,80);
-   popMatrix();
-   //bico meio
-   pushMatrix();
-     translate(-40,25,0);
-     fill(0);
-     box(41,5,90);
-   popMatrix();
-   //bico inf
-   pushMatrix();
-     translate(-35,35,0);
-     fill(#FF4800);
-     box(40,15,80);
-   popMatrix();
-   //rotacao asa
-   pushMatrix();
-     //scale(-1,1);
-     rotateZ(wing);
-     //asa dir
-     pushMatrix();
-       translate(50,-10,-40);
-       fill(#FFFABC);
-       box(60,30,10);
-     popMatrix();
-     //asa esq
-     pushMatrix();
-       translate(50,-10,40);
-       fill(#FFFABC);
-       box(60,30,10);
-     popMatrix();
-   popMatrix();
-   
- 
+   //rotateZ(-35);
+   FlappyBird b = new FlappyBird();
+   b.drawBird();  
+   popMatrix();  
    
 }
 void keyPressed()
